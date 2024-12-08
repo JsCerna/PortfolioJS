@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       "I developed a web app with CRUD functionality to manage data for users applying for study or working holiday visas. The app enables easy addition, update, and retrieval of user information, demonstrating my ability to create efficient and user-friendly data management systems.",
     url: "https://segundo-proyecto-flax.vercel.app",
-    imageUrl: "australia.webp",  // Ruta de la imagen
+    imageUrl: "australia.png",  // Ruta de la imagen
   },
   {
     title: "Project Three",
