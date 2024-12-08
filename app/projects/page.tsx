@@ -1,13 +1,7 @@
 import React from "react";
-import type { Metadata } from "next";
 import { projects } from "./project-data";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description: "My Projects",
-};
-
-export default function Projects() {
+export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-medium tracking-tight">Projects</h1>
@@ -20,18 +14,29 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="block group hover:opacity-80 transition-opacity duration-200"
           >
-            <div className="flex flex-col">
-              <div className="w-full flex justify-between items-baseline">
-                <span className="text-black dark:text-white font-medium tracking-tight">
-                  {project.title}
-                </span>
-                <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {project.year}
-                </span>
+            <div className="flex flex-col sm:flex-row bg-white dark:bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 dark:border-gray-700">
+              {/* Imagen del proyecto */}
+              <div className="sm:w-1/2 w-full flex justify-center sm:justify-start">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full sm:w-[80%] h-48 object-cover object-center transition-transform duration-300 transform group-hover:scale-105"
+                />
               </div>
-              <p className="prose prose-neutral dark:prose-invert pt-3">
-                {project.description}
-              </p>
+              {/* Información del proyecto */}
+              <div className="sm:ml-8 mt-4 sm:mt-0 flex flex-col justify-between text-black dark:text-white">
+                <div className="w-full flex justify-between items-baseline">
+                  <span className="font-medium tracking-tight">
+                    {project.title}
+                  </span>
+                  <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+                    {project.year}
+                  </span>
+                </div>
+                <p className="prose prose-neutral dark:prose-invert pt-3">
+                  {project.description}
+                </p>
+              </div>
             </div>
           </a>
         ))}

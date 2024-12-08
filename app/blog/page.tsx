@@ -1,45 +1,37 @@
-import Link from "next/link";
-import { formatDate, getBlogPosts } from "app/lib/posts";
-
 export const metadata = {
-  title: "Blog",
-  description: "Nextfolio Blog",
+  title: "About",
+  description: "About Me Section",
 };
 
-export default function BlogPosts() {
-  let allBlogs = getBlogPosts();
-
+export default function About() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
-      <div>
-        {allBlogs
-          .sort((a, b) => {
-            if (
-              new Date(a.metadata.publishedAt) >
-              new Date(b.metadata.publishedAt)
-            ) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) => (
-            <Link
-              key={post.slug}
-              className="flex flex-col space-y-1 mb-4 transition-opacity duration-200 hover:opacity-80"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-                <p className="text-black dark:text-white tracking-tight">
-                  {post.metadata.title}
-                </p>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {formatDate(post.metadata.publishedAt, false)}
-                </p>
-              </div>
-            </Link>
-          ))}
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">About Me</h1>
+      <div className="space-y-4">
+        <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          I hold a degree in Bussiness administration with a
+          specialization in Marketing and Finance from Universidad del
+          Desarrollo, where I also completed a thesis project focused on
+          launching a bike park. My responsibilities included leading marketing
+          strategies, managing finances, and providing customer support,
+          showcasing my ability to handle both operational and strategic tasks.
+        </p>
+        <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          During the pandemic, I pursued further studies in Commercial
+          Engineering and developed a strong interest in technology,
+          entrepreneurship, and marketing. I completed a Full Stack MERN
+          Developer bootcamp, equipping myself with essential digital skills.
+        </p>
+        <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          In Australia, I’ve gained experience in farm and warehouse roles,
+          including as a Warehouse Supervisor. I managed inventory systems,
+          optimized warehouse operations, coordinated logistics, and
+          collaborated with teams to ensure efficient product distribution. My
+          background reflects adaptability, leadership, and a commitment to
+          leveraging technology in diverse roles.
+        </p>
       </div>
     </section>
   );
 }
+
